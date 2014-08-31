@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.coordipsy.prechoix.category.ID"
+            name="Pre Choix"/>
+      <wizard
+            category="org.eclipse.coordipsy.prechoix.category.ID"
+            class="org.coordipsy.prechoice.prechoice.presentation.PrechoiceModelWizard"
+            icon="icons/full/obj16/PrechoiceModelFile.gif"
+            id="org.coordipsy.prechoice.prechoice.presentation.PrechoiceModelWizardID"
+            name="%_UI_PrechoiceModelWizard_label"
+            project="true">
+         <description>%_UI_PrechoiceModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.coordipsy.prechoice.prechoice.presentation.PrechoiceEditorID"
+            name="%_UI_PrechoiceEditor_label"
+            icon="icons/full/obj16/PrechoiceModelFile.gif"
+            extensions="prechoice"
+            class="org.coordipsy.prechoice.prechoice.presentation.PrechoiceEditor"
+            contributorClass="org.coordipsy.prechoice.prechoice.presentation.PrechoiceActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.coordispsy.prechoice.editor.contribution1"
+            objectClass="org.coordipsy.prechoice.prechoice.PreChoix">
+         <menu
+               id="org.coordispsy.prechoice.editor.menu1"
+               label="Excel"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.coordispsy.prechoice.editor.popup.actions.GenerateExcel"
+               enablesFor="1"
+               id="org.coordispsy.prechoice.editor.newAction"
+               label="Generer Excel"
+               menubarPath="org.coordispsy.prechoice.editor.menu1/group1">
+         </action>
+         <action
+               class="org.coordispsy.prechoice.editor.popup.actions.ImportExcel"
+               enablesFor="1"
+               id="org.coordispsy.prechoice.editor.newAction2"
+               label="Importer Excel"
+               menubarPath="org.coordispsy.prechoice.editor.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.coordipsy.prechoice.prechoice.presentation.PrechoixPerspective"
+            id="org.coordipsy.prechoice.prechoice.presentation.PrechoixPerspective"
+            name="Pre Choix">
+      </perspective>
+   </extension>
+   <extension
+         id="prechoix.product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="Coordispy Pre Choice">
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
+         <property
+               name="appName"
+               value="Coordispy Pre Choice">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

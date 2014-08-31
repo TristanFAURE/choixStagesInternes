@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.coordispsy.prechoice/src"
+    modelPluginID="org.coordispsy.prechoice" modelName="Prechoice" testsDirectory=""
+    testSuiteClass="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" testsPluginID="org.coordispsy.prechoice.tests">
+  <foreignModel>prechoice.ecore</foreignModel>
+  <genPackages prefix="Prechoice" basePackage="org.coordipsy.prechoice" disposableProviderFactory="true"
+      generateExampleClass="false" ecorePackage="prechoice.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="prechoice.ecore#//TypeStage">
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//TypeStage/PEDOPSY"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//TypeStage/ADULTE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="prechoice.ecore#//Localisation">
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//Localisation/PERIPHERIQUE"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//Localisation/MARCHANT"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//Localisation/CHU"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//Localisation/AUTRE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="prechoice.ecore#//ETAT_INTERNE">
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/NORMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/FinCursus"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/DispoCP"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/DispoM"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/SurnombreNV"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/DOM_TOM"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/DROITREMORD"/>
+      <genEnumLiterals ecoreEnumLiteral="prechoice.ecore#//ETAT_INTERNE/SurnombreV"/>
+    </genEnums>
+    <genClasses ecoreClass="prechoice.ecore#//Interne">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//Interne/prenom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//Interne/promotion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//Interne/classement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference prechoice.ecore#//Interne/choix"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference prechoice.ecore#//Interne/affectation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//Interne/annee"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//Interne/etat"/>
+    </genClasses>
+    <genClasses ecoreClass="prechoice.ecore#//Stage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//Stage/nombreDePostes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference prechoice.ecore#//Stage/interneAffecte"/>
+      <genOperations ecoreOperation="prechoice.ecore#//Stage/getNumber"/>
+      <genOperations ecoreOperation="prechoice.ecore#//Stage/getLabel"/>
+      <genOperations ecoreOperation="prechoice.ecore#//Stage/getLocation"/>
+      <genOperations ecoreOperation="prechoice.ecore#//Stage/getDocteur"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="prechoice.ecore#//ElementNomme">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//ElementNomme/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="prechoice.ecore#//PreChoix"/>
+    <genClasses ecoreClass="prechoice.ecore#//Dossier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference prechoice.ecore#//Dossier/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference prechoice.ecore#//Dossier/locations"/>
+    </genClasses>
+    <genClasses ecoreClass="prechoice.ecore#//DocteurLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//DocteurLocation/nomDuDocteur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute prechoice.ecore#//DocteurLocation/localisation"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

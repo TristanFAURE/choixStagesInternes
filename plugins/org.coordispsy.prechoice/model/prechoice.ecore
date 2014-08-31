@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="prechoice"
+    nsURI="http://coordipsy/prechoice/1.0" nsPrefix="prechoice">
+  <eClassifiers xsi:type="ecore:EClass" name="Interne" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prenom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="promotion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choix" upperBound="-1"
+        eType="#//Stage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectation" eType="#//Stage"
+        eOpposite="#//Stage/interneAffecte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annee" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="etat" eType="#//ETAT_INTERNE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stage" eSuperTypes="#//ElementNomme">
+    <eOperations name="getNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="getLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getDocteur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreDePostes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interneAffecte" upperBound="-1"
+        eType="#//Interne" eOpposite="#//Interne/affectation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementNomme" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PreChoix" eSuperTypes="#//Dossier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dossier" eSuperTypes="#//ElementNomme">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ElementNomme" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locations" upperBound="-1"
+        eType="#//DocteurLocation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeStage">
+    <eLiterals name="PEDOPSY"/>
+    <eLiterals name="ADULTE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Localisation">
+    <eLiterals name="PERIPHERIQUE"/>
+    <eLiterals name="MARCHANT" value="1"/>
+    <eLiterals name="CHU" value="2"/>
+    <eLiterals name="AUTRE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ETAT_INTERNE">
+    <eLiterals name="NORMAL" literal=" "/>
+    <eLiterals name="FinCursus" value="1"/>
+    <eLiterals name="DispoCP" value="2" literal="DISPO CP"/>
+    <eLiterals name="DispoM" value="3" literal="DISPO MASTER"/>
+    <eLiterals name="SurnombreNV" value="4" literal="Surnombre NV"/>
+    <eLiterals name="DOM_TOM" value="5" literal="DOM TOM"/>
+    <eLiterals name="DROITREMORD" value="8" literal="DROIT REMORD"/>
+    <eLiterals name="SurnombreV" value="7" literal="Surnombre V"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocteurLocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nomDuDocteur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localisation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
